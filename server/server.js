@@ -9,21 +9,7 @@ app.use(express.json());
 app.use("/", (req, res) => {
     res.send("Server active.");
 })
-
-app.get("/sql/:username/:password", async (req, res) => {
-    let username = req.params.username;
-    let password = req.params.password;
-    if (typeof username != "string" || typeof password != "string"){
-        response.send("Invalid parameters!");
-        response.end();
-        return;
-    } else {
-        const query = `SELECT * FROM users WHERE username = '${username}' and password = '${password}'`;
-        const result = await pool.query(query);
-        res.json(result.rows);
-    }
-});
-
+/*
 app.get("/sqlon/:username/:password", async (req, res) => {
     let username = req.params.username;
     let password = req.params.password;
@@ -39,22 +25,6 @@ app.get("/sqloff/:username/:password", async (req, res) => {
     res.json(result.rows);
 })
 
-/*app.listen(3000, () => {
+app.listen(3000, () => {
     console.log("Server has started on port 3000.");
 })*/
-
-/*
-app.get("/all/:username/:password", async (req, res) => {
-    let username = req.params.username;
-    let password = req.params.password;
-    if (typeof username != "string" || typeof password != "string"){
-        response.send("Invalid parameters!");
-        response.end();
-        return;
-    } else {
-        const query = `SELECT * FROM users WHERE username = '${username}' and password = '${password}'`;
-        const result = await pool.query(query);
-        res.json(result.rows);
-    }
-});
-*/ 
