@@ -6,6 +6,10 @@ const pool = require("./db.js");
 app.use(cors());
 app.use(express.json());
 
+app.use("/", (req, res) => {
+    res.send("Server active.");
+})
+
 app.get("/sql/:username/:password", async (req, res) => {
     let username = req.params.username;
     let password = req.params.password;
