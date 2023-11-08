@@ -2,9 +2,15 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db.js");
+const dotenv = require('dotenv');
+dotenv.config();
 
 app.use(cors());
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send('Simple API homepage');
+})
 
 app.get("/sqlon/:username/:password", async (req, res) => {
     let username = req.params.username;

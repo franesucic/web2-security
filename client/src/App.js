@@ -24,6 +24,7 @@ const handleSubmit = async (e) => {
     alert(JSON.stringify(jsonData))
   } else {
     let response = await fetch(`http://localhost:3000/sqloff/${username}/${password}`);
+    console.log(response);
     let jsonData = await response.json();
     if (jsonData.length === 0) {
       alert("Pogrešan unos");
@@ -52,7 +53,7 @@ const handlePasswordChange = (e) => {
       <div className="task-div">
         { sqlInj ? <button onClick={handleSqlButton}>Isključi ranjivost</button> : <button onClick={handleSqlButton}>Uključi ranjivost</button> }
         <div className="action-div">
-          <div><b>Dohvati svoje podatke:</b> (Za testiranje ranjivosti unjeti navedeni tekst u polje za lozinku: <span style={{backgroundColor:"red"}}>a' or '1'='1</span>)</div>
+          <div><b>Dohvati svoje podatke:</b> (Za testiranje ranjivosti unjeti navedeni tekst u polje za lozinku ili oba polja: <span style={{backgroundColor:"red"}}>a' or '1'='1</span>)</div>
           <span>Korisničko ime: </span><input type="text" onChange={handleUsernameChange}></input><span>Lozinka: </span><input type="password" onChange={handlePasswordChange}></input><button onClick={handleSubmit}>Unesi</button>
         </div>
       </div>
