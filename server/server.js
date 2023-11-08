@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const pool = require("./db.js");
+//const pool = require("./db.js");
 
 app.use(cors());
 app.use(express.json());
@@ -39,9 +39,9 @@ app.get("/sqloff/:username/:password", async (req, res) => {
     res.json(result.rows);
 })
 
-app.listen(3000, () => {
+/*app.listen(3000, () => {
     console.log("Server has started on port 3000.");
-})
+})*/
 
 /*
 app.get("/all/:username/:password", async (req, res) => {
