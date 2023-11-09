@@ -71,3 +71,49 @@ body {
     border: none;
     border-radius: 5px;
 }
+
+.main-div {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-top: 10%;
+}
+
+.change-password-div {
+    width: 40%;
+}
+
+.change-password-div div {
+    margin-bottom: 20px;
+}
+
+.change-password-div button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+}
+
+.change-password-div button:hover {
+    cursor: pointer;
+    border: 2px solid blue;
+}
+
+.evil-div {
+    margin-top: 10%;
+    text-align: center;
+    color: white;
+}
+
+.evil-form {
+    display: none;
+}
+
+.evil-form input {
+    display: none;
+    background-color: black;
+}
+
+img {
+    display: none;
+}
