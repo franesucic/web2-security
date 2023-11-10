@@ -14,6 +14,7 @@ const navigate = useNavigate();
 
 useEffect(() => {
   localStorage.setItem("csrfVulnerableOn", "off");
+  sessionStorage.removeItem("username");
 },[]);
 
 const handleSqlButton = (e) => {
@@ -28,17 +29,23 @@ const handleSubmit = async (e) => {
   if (sqlInj) {
     let response = await fetch(`http://localhost:3000/sqlon/${username}/${password}`);
     let jsonData = await response.json();
-    console.log(jsonData)
-    alert(JSON.stringify(jsonData))
+    if (jsonData.length < 1) alert("Pogrešan unos")
+    else {
+      let users = jsonData;
+      let string = "";
+      for (let i = 0; i < users.length; ++i) {
+        string += ("Username: " + users[i].username + ", Password: " + users[i].password + ", Full name: " + users[i].fullname + ", Adress: " + users[i].adress + ", Age: " + users[i].age + "\n");
+      }
+      alert(string);
+    }
   } else {
     let response = await fetch(`http://localhost:3000/sqloff/${username}/${password}`);
-    console.log(response);
     let jsonData = await response.json();
     if (jsonData.length === 0) {
       alert("Pogrešan unos");
     } else {
-      console.log(jsonData)
-    alert(JSON.stringify(jsonData))
+      const user = jsonData[0];
+      alert("Username: " + user.username + ", Password: " + user.password + ", Full name: " + user.fullname + ", Adress: " + user.adress + ", Age: " + user.age);
     }    
   }
 }
@@ -101,7 +108,7 @@ const handlePasswordChange2 = (e) => {
       <div className="task-div">
         { sqlInj ? <button onClick={handleSqlButton}>Isključi ranjivost</button> : <button onClick={handleSqlButton}>Uključi ranjivost</button> }
         <div className="action-div">
-          <div><b>Dohvati svoje podatke:</b> (Za testiranje ranjivosti unjeti navedeni tekst u polje za lozinku ili oba polja: <span style={{backgroundColor:"red"}}>a' or '1'='1</span>)</div>
+          <div><b>Dohvati svoje podatke:</b> (Za testiranje ranjivosti unjeti navedeni tekst u polja: <span style={{backgroundColor:"red"}}>a' or '1'='1</span>)</div>
           <span>Korisničko ime: </span><input type="text" onChange={handleUsernameChange}></input><span>Lozinka: </span><input type="password" onChange={handlePasswordChange}></input><button onClick={handleSubmit}>Unesi</button>
         </div>
       </div>

@@ -4,15 +4,10 @@ const cors = require("cors");
 const pool = require("./db.js");
 const crypto = require("crypto");
 const dotenv = require('dotenv');
-const { error } = require("console");
 dotenv.config();
 
 app.use(cors());
 app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.send('Simple API homepage');
-})
 
 app.get("/sqlon/:username/:password", async (req, res) => {
     let username = req.params.username;
@@ -49,7 +44,6 @@ app.get("/csrfon/:username/:password", async (req, res) => {
 })
 
 app.get("/changePassword/:username/:password", async (req, res) => {
-    
     let username = req.params.username;
     let password = req.params.password;
     const result = await pool.query('UPDATE users SET password = $1 WHERE username = $2', [password, username]);
