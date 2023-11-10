@@ -9,7 +9,6 @@ const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [username2, setUsername2] = useState("");
 const [password2, setPassword2] = useState("");
-const [token, setToken] = useState("");
 
 const navigate = useNavigate();
 

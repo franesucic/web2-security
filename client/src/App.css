@@ -74,7 +74,7 @@ body {
 
 .main-div {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     color: white;
     margin-top: 10%;
 }
@@ -116,4 +116,37 @@ body {
 
 img {
     display: none;
+}
+
+.logout-div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+}
+
+.logout-div button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+}
+
+.logout-div button:hover {
+    cursor: pointer;
+    border: 2px solid rgb(60, 0, 255);
+    border-radius: 20px;
+}
+
+.back-div button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    margin-left: 3%;
+}
+
+.back-div button:hover {
+    cursor: pointer;
+    border: 2px solid rgb(60, 0, 255);
+    border-radius: 20px;
 }

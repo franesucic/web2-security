@@ -39,6 +39,7 @@ function Profile() {
 
     return (
         <div className="main-div">
+            <div className="logout-div"><button onClick={handleLogout}>Odjava</button></div>
             <div className="change-password-div">
                 <div>
                     <b>Change your password:</b>
@@ -48,7 +49,6 @@ function Profile() {
                 <div><button onClick={handleNewPassword}>Potvrdi</button></div>
             </div>
             <div><button onClick={() => {navigate("/evil")}}>Zaradi 100€ u pola sata</button></div>
-            <div><button onClick={handleLogout}>Odjava</button></div>
         </div>
     );
 }
