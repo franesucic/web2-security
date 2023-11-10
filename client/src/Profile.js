@@ -16,13 +16,13 @@ function Profile() {
     const handleNewPassword = async (e) => {
         if (pass === confPass) {
             if (localStorage.getItem("csrfVulnerableOn")) {
-                let response = await fetch(`https://web2-security-server.vercel.app/changePassword/${username}/${pass}`);
+                let response = await fetch(`https://web2-security-server.onrender.com/changePassword/${username}/${pass}`);
                 let jsonData = await response.json();
             } else {
-                let tokenResponse = await fetch(`https://web2-security-server.vercel.app/getToken/${username}/${pass}`);
+                let tokenResponse = await fetch(`https://web2-security-server.onrender.com/getToken/${username}/${pass}`);
                 let tokenJsonData = await tokenResponse.json();
                 let token = tokenJsonData[0].token;
-                let response = await fetch(`https://web2-security-server.vercel.app/secureChangePassword/${username}/${pass}/${token}`);
+                let response = await fetch(`https://web2-security-server.onrender.com/secureChangePassword/${username}/${pass}/${token}`);
                 let jsonData = await response.json();
             }
             alert("Lozinka uspješno izmjenjena.");

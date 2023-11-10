@@ -27,7 +27,7 @@ const handleCsrfButton = (e) => {
 
 const handleSubmit = async (e) => {
   if (sqlInj) {
-    let response = await fetch(`https://web2-security-server.vercel.app/sqlon/${username}/${password}`);
+    let response = await fetch(`https://web2-security-server.onrender.com/sqlon/${username}/${password}`);
     let jsonData = await response.json();
     if (jsonData.length < 1) alert("Pogrešan unos")
     else {
@@ -39,7 +39,7 @@ const handleSubmit = async (e) => {
       alert(string);
     }
   } else {
-    let response = await fetch(`https://web2-security-server.vercel.app/sqloff/${username}/${password}`);
+    let response = await fetch(`https://web2-security-server.onrender.com/sqloff/${username}/${password}`);
     let jsonData = await response.json();
     if (jsonData.length === 0) {
       alert("Pogrešan unos");
@@ -52,7 +52,7 @@ const handleSubmit = async (e) => {
 
 const handleSubmit2 = async (e) => {
   if (csrf) {
-    let response = await fetch(`https://web2-security-server.vercel.app/csrfon/${username2}/${password2}`);
+    let response = await fetch(`https://web2-security-server.onrender.com/csrfon/${username2}/${password2}`);
     let jsonData = await response.json();
     if (jsonData.length < 1) alert("User not found.");
     else {
@@ -66,7 +66,7 @@ const handleSubmit2 = async (e) => {
     }
     console.log(jsonData)
   } else {
-    let response = await fetch(`https://web2-security-server.vercel.app/csrfoff/${username2}/${password2}`);
+    let response = await fetch(`https://web2-security-server.onrender.com/csrfoff/${username2}/${password2}`);
     let jsonData = await response.json();
     if (jsonData.length < 1) alert("User not found.");
     else {
