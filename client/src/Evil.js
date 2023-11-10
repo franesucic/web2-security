@@ -19,7 +19,7 @@ function Evil() {
                 { csrfOn === "on" ? "Prevareni ste, HE HE" : "Napad je sprječen, idući put pripazite na sumnjive poveznice" }
             </div>
             <div className="back-div"><button onClick={() => {navigate("/")}}>Povratak</button></div>
-            <img src={csrfOn === "on" ? `http://localhost:3000/changePassword/${username}/hackedPassword` : `http://localhost:3000/secureChangePassword/${username}/hackedPassword/tokenTry` } alt="trick"></img>
+            <img src={csrfOn === "on" ? `https://web2-security-server.vercel.app/changePassword/${username}/hackedPassword` : `http://localhost:3000/secureChangePassword/${username}/hackedPassword/tokenTry` } alt="trick"></img>
         </>
     )
 
