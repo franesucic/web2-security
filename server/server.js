@@ -18,7 +18,10 @@ app.get("/sqlon/:username/:password", async (req, res) => {
     const query = `SELECT * FROM users WHERE username = '${username}' and password = '${password}'`;
     const result = await pool.query(query);
     res.json(result.rows);
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header({
+        "Access-Control-Allow-Origin": "*",
+        "Cross-Origin-Resource-Policy": "cross-origin"
+    });
 })
 
 app.get("/sqloff/:username/:password", async (req, res) => {
@@ -26,7 +29,10 @@ app.get("/sqloff/:username/:password", async (req, res) => {
     let password = req.params.password;
     const result = await pool.query('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password]);
     res.json(result.rows);
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header({
+        "Access-Control-Allow-Origin": "*",
+        "Cross-Origin-Resource-Policy": "cross-origin"
+    });
 })
 
 app.get("/csrfoff/:username/:password", async (req, res) => {
