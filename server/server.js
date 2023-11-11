@@ -9,6 +9,11 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
+
 app.get("/sqlon/:username/:password", async (req, res) => {
     let username = req.params.username;
     let password = req.params.password;
