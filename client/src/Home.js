@@ -27,7 +27,9 @@ const handleCsrfButton = (e) => {
 
 const handleSubmit = async (e) => {
   if (sqlInj) {
-    let response = await fetch(`https://web2-security-server.onrender.com/sqlon/${username}/${password}`);
+    let response = await fetch(`https://web2-security-server.onrender.com/sqlon/${username}/${password}`, {
+      mode: "no-cors"
+    });
     let jsonData = await response.json();
     if (jsonData.length < 1) alert("Pogrešan unos")
     else {
@@ -39,7 +41,9 @@ const handleSubmit = async (e) => {
       alert(string);
     }
   } else {
-    let response = await fetch(`https://web2-security-server.onrender.com/sqloff/${username}/${password}`);
+    let response = await fetch(`https://web2-security-server.onrender.com/sqloff/${username}/${password}`, {
+      mode: "no-cors"
+    });
     let jsonData = await response.json();
     if (jsonData.length === 0) {
       alert("Pogrešan unos");
