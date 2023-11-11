@@ -50,7 +50,18 @@ const handleSubmit = async (e) => {
       alert(string);
     }
   } else {
-    let response = await fetch(`https://web2-security-server.onrender.com/sqloff/${username}/${password}`);
+    //let response = await fetch(`https://web2-security-server.onrender.com/sqloff/${username}/${password}`);
+    let response = await fetch("https://web2-security-server.onrender.com/sqloff", {
+      method: "POST", 
+      headers: {
+        'Accept': 'application/json',
+       'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password
+      })
+    })
     let jsonData = await response.json();
     if (jsonData.length === 0) {
       alert("Pogrešan unos");

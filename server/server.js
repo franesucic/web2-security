@@ -28,9 +28,9 @@ app.post("/sqlon", async (req, res) => {
     res.json(result.rows);
 })
 
-app.get("/sqloff/:username/:password", async (req, res) => {
-    let username = req.params.username;
-    let password = req.params.password;
+app.post("/sqloff", async (req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
     const result = await pool.query('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password]);
     res.json(result.rows);
 })
