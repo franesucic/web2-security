@@ -27,7 +27,18 @@ const handleCsrfButton = (e) => {
 
 const handleSubmit = async (e) => {
   if (sqlInj) {
-    let response = await fetch(`https://web2-security-server.onrender.com/sqlon/${username}/${password}`);
+    //let response = await fetch(`https://web2-security-server.onrender.com/sqlon/${username}/${password}`);
+    let response = await fetch("https://web2-security-server.onrender.com/sqlon", {
+      method: "POST", 
+      headers: {
+        'Accept': 'application/json',
+       'Content-Type': 'application/json'
+      },
+      body: {
+        username: username,
+        password: password
+      }
+    })
     let jsonData = await response.json();
     if (jsonData.length < 1) alert("Pogrešan unos")
     else {
