@@ -27,7 +27,6 @@ const handleCsrfButton = (e) => {
 
 const handleSubmit = async (e) => {
   if (sqlInj) {
-    //let response = await fetch(`https://web2-security-server.onrender.com/sqlon/${username}/${password}`);
     let response = await fetch("https://web2-security-server.onrender.com/sqlon", {
       method: "POST", 
       headers: {
@@ -50,7 +49,6 @@ const handleSubmit = async (e) => {
       alert(string);
     }
   } else {
-    //let response = await fetch(`https://web2-security-server.onrender.com/sqloff/${username}/${password}`);
     let response = await fetch("https://web2-security-server.onrender.com/sqloff", {
       method: "POST", 
       headers: {

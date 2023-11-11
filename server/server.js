@@ -12,14 +12,6 @@ app.use(cors({
 }));
 app.use(express.json());
 
-/*app.get("/sqlon/:username/:password", async (req, res) => {
-    let username = req.params.username;
-    let password = req.params.password;
-    const query = `SELECT * FROM users WHERE username = '${username}' and password = '${password}'`;
-    const result = await pool.query(query);
-    res.json(result.rows);
-})*/
-
 app.post("/sqlon", async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
