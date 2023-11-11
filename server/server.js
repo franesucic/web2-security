@@ -6,13 +6,11 @@ const crypto = require("crypto");
 const dotenv = require('dotenv');
 dotenv.config();
 
-app.use(cors());
+app.use(cors({
+    origin: "https://web2-security-client.onrender.com/",
+    methods: ["GET", "POST"]
+}));
 app.use(express.json());
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-  });
 
 app.get("/sqlon/:username/:password", async (req, res) => {
     let username = req.params.username;
