@@ -34,10 +34,10 @@ const handleSubmit = async (e) => {
         'Accept': 'application/json',
        'Content-Type': 'application/json'
       },
-      body: {
+      body: JSON.stringify({
         username: username,
         password: password
-      }
+      })
     })
     let jsonData = await response.json();
     if (jsonData.length < 1) alert("Pogrešan unos")
