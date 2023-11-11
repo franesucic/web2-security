@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 app.use(cors({
-    origin: "https://web2-security-client.onrender.com/",
+    origin: "https://web2-security-client.onrender.com",
     methods: ["GET", "POST"]
 }));
 app.use(express.json());
